@@ -27,8 +27,8 @@ class SortedLinkedListTest {
 
         assertNotNull(sortedElements);
         assertEquals(25, sortedElements.size());
-        assertEquals(sum, sortedLinkedList.calculateSum());
-        assertEquals(average, sum / (double) sortedElements.size());
+        assertEquals(sortedLinkedList.getSortedElements().stream().reduce(0, Integer::sum), sortedLinkedList.calculateSum());
+        assertEquals((double) sortedLinkedList.getSortedElements().stream().reduce(0, Integer::sum) / 25, average);
     }
 
 }
